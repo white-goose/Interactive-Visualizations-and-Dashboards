@@ -1,15 +1,15 @@
 function buildMetadata(sample) {
     var metadataSelector = d3.select('#sample-metadata');
 
-    d3.json(`/metadata/${sample}`).then( data =>{
+    d3.json(`/metadata/${sample}`).then( data => {
       metadataSelector.html("");
       console.log(Object.entries(data));
-      Object.entries(data).forEach(([key,value]) =>{
+      Object.entries(data).forEach(([key,value]) => { 
         metadataSelector
           .append('p').text(`${key} : ${value}`)
           .append('hr')
       });
-      })
+    })
 }
 
 function pieChart(data) {
